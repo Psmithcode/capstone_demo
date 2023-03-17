@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card } from "@mui/material";
 import { useState } from "react";
+import "../Components/Counterstyles.css";
 
 export default function CounterCard(props) {
   //   const [setLife, life] = props;
@@ -21,21 +22,26 @@ export default function CounterCard(props) {
       <div>
         <Button
           variant="contained"
+          value="decrement"
+          onClick={() => {
+            if (props.life === 1) {
+              window.alert(`Player ${props.player} Won!`);
+              props.setLife(props.life - 1);
+            } else {
+              props.setLife(props.life - 1);
+            }
+          }}
+        >
+          -
+        </Button>
+        <Button
+          variant="contained"
           value="increment"
           onClick={() => {
             props.setLife(props.life + 1);
           }}
         >
           +
-        </Button>
-        <Button
-          variant="contained"
-          value="decrement"
-          onClick={() => {
-            props.setLife(props.life - 1);
-          }}
-        >
-          -
         </Button>
       </div>
       <div>
@@ -57,7 +63,7 @@ export default function CounterCard(props) {
           >
             -
           </Button>
-          <p style={{ fontSize: "15px" }}>{props.commanderDamage}</p>
+          <p style={{ fontSize: "25px" }}>{props.commanderDamage}</p>
           <Button
             variant="contained"
             onClick={() => {

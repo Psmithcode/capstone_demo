@@ -10,10 +10,13 @@ export default function Counter(props) {
   return (
     <>
       <CounterCard
+        id="upsideDown"
         setLife={setLifeOne}
         life={lifeOne}
         commanderDamage={commanderDamageOne}
         setCommanderDamage={setCommanderDamageOne}
+        player={1}
+        style={{ rotate: "180deg" }}
       />
       <Button
         color="error"
@@ -21,15 +24,27 @@ export default function Counter(props) {
         onClick={() => {
           setLifeOne(40);
           setLifeTwo(40);
+          setCommanderDamageOne(0);
+          setCommanderDamageTwo(0);
         }}
       >
         Reset
+      </Button>
+      <Button
+        variant="contained"
+        onClick={() => {
+          setLifeOne(30);
+          setLifeTwo(30);
+        }}
+      >
+        2-Player
       </Button>
       <CounterCard
         setLife={setLifeTwo}
         life={lifeTwo}
         commanderDamage={commanderDamageTwo}
         setCommanderDamage={setCommanderDamageTwo}
+        player={2}
       />
     </>
   );

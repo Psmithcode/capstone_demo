@@ -1,10 +1,12 @@
 import "./App.css";
 import Counter from "./Components/Counter";
+import Home from "./Components/Home";
+import Router from "./Router";
 
 function App() {
   return (
     <div className="App" style={divStyles}>
-      <Counter />
+      <Router />
     </div>
   );
 }
@@ -17,4 +19,5 @@ const divStyles = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-evenly",
+  backgroundColor: "#545452",
 };
